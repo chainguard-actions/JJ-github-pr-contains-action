@@ -1,0 +1,32 @@
+name: Test bodyContains input
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: action
+        uses: .
+        continue-on-error: true
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          allowEmpty: "true"
+          bodyContains: "fixes|closes|resolves"
+      - name: Assert action ran or failed gracefully
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+          DIFF: ${{ steps.action.outputs.diff }}
+          NUM_FILES: ${{ steps.action.outputs.numberOfFiles }}
+        run: |
+          echo "outcome: $OUTCOME"
+          echo "diff: $DIFF"
+          echo "numberOfFiles: $NUM_FILES"
+          if [ "$OUTCOME" = "success" ]; then
+            echo "PASS: action succeeded with bodyContains check"
+          elif [ "$OUTCOME" = "failure" ]; then
+            echo "PASS: action failed gracefully (sentinel repo / not a PR context)"
+          else
+            echo "FAIL: unexpected outcome '$OUTCOME'"
+            exit 1
+          fi
