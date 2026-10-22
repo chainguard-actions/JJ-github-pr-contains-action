@@ -10,6 +10,7 @@ Hardened by [Chainguard](https://www.chainguard.dev) from the upstream action at
 |---------|-----|-----------------|
 | releases/v14 | [`releases/v14`](https://github.com/chainguard-actions/JJ-github-pr-contains-action/tree/releases/v14) | [`604f9d2`](https://github.com/JJ/github-pr-contains-action/commit/604f9d29050fb9dd55ba242a822f36f1639c4ef7) |
 | releases/v14.3.0 | [`releases/v14.3.0`](https://github.com/chainguard-actions/JJ-github-pr-contains-action/tree/releases/v14.3.0) | [`53e1c48`](https://github.com/JJ/github-pr-contains-action/commit/53e1c48596a5dd1d6887247d9146e82ca55e4047) |
+| v13 | [`v13`](https://github.com/chainguard-actions/JJ-github-pr-contains-action/tree/v13) | [`f4df49d`](https://github.com/JJ/github-pr-contains-action/commit/f4df49df90995a03f73904715ed78f206e21d991) |
 
 ## Privacy
 
