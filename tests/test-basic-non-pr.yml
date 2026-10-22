@@ -1,0 +1,30 @@
+name: Test basic usage on non-PR event
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - id: action
+        uses: .
+        with:
+          github-token: ${{ github.token }}
+          bodyContains: "Test"
+          bodyDoesNotContain: "Delete"
+      - name: Assert action succeeded and skipped PR checks (no diff output)
+        env:
+          OUTCOME: ${{ steps.action.outcome }}
+          DIFF: ${{ steps.action.outputs.diff }}
+        run: |
+          echo "outcome: $OUTCOME"
+          echo "diff: $DIFF"
+          if [ "$OUTCOME" != "success" ]; then
+            echo "FAIL: expected success"
+            exit 1
+          fi
+          if [ -n "$DIFF" ]; then
+            echo "FAIL: expected empty diff output on non-PR event"
+            exit 1
+          fi
+          echo "PASS"
