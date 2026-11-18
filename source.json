@@ -4,8 +4,13 @@
   "version": "releases/v14.3.0",
   "commit_sha": "53e1c48596a5dd1d6887247d9146e82ca55e4047",
   "url": "https://github.com/JJ/github-pr-contains-action",
-  "policy_sha": "d636be7e43ef829af6e853da6b3c7566db9f72fe",
+  "policy_sha": "374911c4be584df24e6da57af2d990570ef0f859",
   "test_policy_sha": "843adf9e4b8f85d0c08b27b9d0b09dd094b54702",
   "test_agent_version": "2",
-  "harden_agent_version": "2"
+  "harden_agent_version": "2",
+  "dist_artifact": {
+    "gcs_uri": "gs://patch-actions-node-artifacts/dist-artifacts/JJ/github-pr-contains-action/releases/v14.3.0/sha256-50b0e8107ef72819b19fb8c5ca3a9b869179b4cabca0cb4701141c1351832345.tar.gz",
+    "sha256": "50b0e8107ef72819b19fb8c5ca3a9b869179b4cabca0cb4701141c1351832345",
+    "size_bytes": 598351
+  }
 }
